@@ -36,8 +36,8 @@ jobs:
       - name: Configure Databricks CLI
         run: databricks configure --token
         env:
-          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
-          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+          DATABRICKS_HOST: "https://adb-17073132427777.17.azuredatabricks.net"
+          DATABRICKS_TOKEN: "dapi65d10b4fb85d6f9e8dcdbbfe7c1421aa-2"
   
       - name: Download Sample Data from DBFS
         run: databricks fs cp dbfs:/FileStore/sample_sales.csv .
