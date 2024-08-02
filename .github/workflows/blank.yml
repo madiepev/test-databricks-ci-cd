@@ -33,11 +33,11 @@ jobs:
       - name: Install Databricks CLI
         run: pip install databricks-cli
 
-      - name: Configure Databricks CLI
-        env:
-          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
-          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
-        run: databricks configure --token
+      # - name: Configure Databricks CLI
+      #   env:
+      #     DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+      #     DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+      #   run: databricks configure --token
         
       - name: Download Sample Data from DBFS
         run: databricks fs cp dbfs:/FileStore/sample_sales.csv .
