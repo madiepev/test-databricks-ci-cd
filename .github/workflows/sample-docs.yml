@@ -41,9 +41,10 @@ jobs:
         pip install pytest setuptools wheel
 
     - name: Configure CLI
-      run: |
-        echo "${{ secrets.DATABRICKS_HOST }} ${{ secrets.DATABRICKS_TOKEN }}" | databricks configure --token
-
+      env:
+         DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+         DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+      run: databricks configure --token
     # - name: Extract branch name
     #   shell: bash
     #   run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
